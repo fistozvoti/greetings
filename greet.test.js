@@ -9,21 +9,20 @@ describe('greet function' , function(){
         let greetLanguage = greetFactory();
 
         greetLanguage.setTheNames("")
-        assert.equal("Please insert your name and select language!",greetLanguage.greetName());
+        assert.equal(undefined, greetLanguage.greetName("Please select language!"));
     });
     it('should be able to take in any name' , function(){
         let getByName = greetFactory();
         
         getByName.setTheNames("Iviwe");
-        console.log(getByName.getName());
         assert.equal("Iviwe", getByName.getName());
     });
     it('should be able to keep track of how many names that have been greeted' , function(){
         let counter = greetFactory();
 
-        counter.setTheNames("Iviwe");
-        counter.setTheNames("Liso");
-        counter.setTheNames("Siya");
+        counter.getName("Iviwe");
+        counter.getName("Liso");
+        counter.getName("Siya");
         assert.equal(3, counter.getCounter());
     });
     

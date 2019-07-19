@@ -32,7 +32,7 @@ body {
 /* TYPOGRAPHY */
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 5.5rem;
 }
 
 h2 {
@@ -105,10 +105,30 @@ p {
   margin-right: auto;
   display: grid;
 }
-.buttons {
+/* .buttons {
+  background-color: #4CAF50;
+  border-radius: 50px;
+  color: white;
+  padding: 15px 32px;
   text-align: center;
-  font-size: 100%;
-  padding: 3%;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+} */
+.button {
+  padding: 20px 40px;
+  display: inline;
+  border-radius: 50px;
+  font-family: Arial;
+  border: 0;
+  margin: 0 10px;
+  background-color: red;
+  font-size: 30px;
+  line-height: 15px;
+  color: white;
+  width: auto;
+  height: auto;
+  box-sizing: content-box;
 }
 
 .row {
@@ -116,11 +136,11 @@ p {
   width: 100%;
 }
 
-.row [class^="col"] {
+/* .row [class^="col"] {
   float: center;
   margin: 0.5rem 2%;
   min-height: 0.125rem;
-}
+} */
 /* table, th, td{
   border: 3px solid black;
   border-collapse: collapse;
