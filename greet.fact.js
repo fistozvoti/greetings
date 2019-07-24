@@ -6,16 +6,16 @@ function greetFactory(storeNames) {
 
     greetUser = (name, lang) => {
         isError = false;
+        let upperCaseName = name.toUpperCase().charAt(0) + name.slice(1).toLowerCase();
 
         if (name != '' && lang != undefined) {
 
-            let upperCaseName = name.toUpperCase().charAt(0) + name.slice(1);
 
-            if (theNames[name] === undefined) {
-                theNames[name] = 1;
+            if (theNames[upperCaseName] === undefined) {
+                theNames[upperCaseName] = 0;
             }
             else {
-                theNames[name]++;
+                theNames[upperCaseName]++;
             }
             if (lang === "English") {
                 return "Hello, " + upperCaseName;
