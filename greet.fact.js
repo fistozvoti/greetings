@@ -1,81 +1,54 @@
 function greetFactory(storeNames) {
-    var theNames = {};
-    var result;
-    var counter = 0;
-    var peopleObject = storeNames || {};
 
-    function updatePeopleObject(storeNames) {
-        peopleObject = storeNames || {}
-        return peopleObject
-    }
+    var theNames = storeNames || {};
+    let isError = false;
+    counterValue = () => Object.keys(theNames).length;
 
-    function counterValue() {
-        var howMany = Object.keys(peopleObject);
-        counter = howMany.length;
+    greetUser = (name, lang) => {
+        isError = false;
 
-        return counter;
-    }
+        if (name != '' && lang != undefined) {
 
-    function whosGreeted(name) {
-        if (peopleObject[name] === undefined) {
-            peopleObject[name] = 0;
-        }
-        console.log(peopleObject);
-        return peopleObject;
-    }
+            let upperCaseName = name.toUpperCase().charAt(0) + name.slice(1);
 
-    function whosInThePeopleObject() {
-        return peopleObject
-    }
-
-    function setTheNames(name, lang) {
-        theNames = name;
-
-        if (name === "" && lang === undefined) {
-            return "Please select language and insert your name!";
-        }
-        if (lang === undefined) {
-            return "Please select language!";
-        }
-        if (name === "") {
-            return "Please enter name!";
-        }
-
-        if (name) {
-            counter++;
-
+            if (theNames[name] === undefined) {
+                theNames[name] = 1;
+            }
+            else {
+                theNames[name]++;
+            }
             if (lang === "English") {
-                result = "Hello, " + name;
+                return "Hello, " + upperCaseName;
             }
             else if (lang === "IsiXhosa") {
-                result = "Molo, " + name;
+                return "Molo, " + upperCaseName;
             }
             else if (lang === "Afrikaans") {
-                result = "Hallo, " + name;
+                return "Hallo, " + upperCaseName;
             }
-            return result
+
         }
+
+        if (name === '' && lang != undefined) {
+            isError = true;
+            return 'Please enter name!';
+        }
+        if (lang === undefined && name != '') {
+            isError = true;
+            return 'Please select language!'
+        }
+        isError = true;
+        return 'Please enter name or select language!';
     }
 
+    updatePeopleObject = () => theNames;
 
-    function greetName() {
-        return result;
-    }
-    function getName() {
-        return theNames;
-    }
-    function getCounter() {
-        return counter;
-    }
+    error = () => isError;
 
     return {
-        setTheNames,
-        greetName,
-        getName,
-        getCounter,
-        whosGreeted,
+        greetUser,
         counterValue,
-        whosInThePeopleObject,
+        error,
         updatePeopleObject
     }
 }
